@@ -73,18 +73,21 @@ def generate_correlated_sparse_linear_data(n=1000,d=50,s=5,sigma=1.0,signal=2.0,
     # pick a starting index
     start = rng.integers(0, d - s)
 
-    # choose consecutive features (highly correlated in Toeplitz)
     support = np.arange(start, start + s)
-    # create decoy features (copies of true ones + tiny noise)
-    num_decoys = s
-    decoy_indices = np.arange(start + s, start + 2*s)
 
-    decoy_indices = decoy_indices[decoy_indices < d]
+    decoy_indices = np.arange(start + s, min(start + 2*s, d))
 
-    X[:, decoy_indices] = X[:, support[:len(decoy_indices)]] + 0.03 * rng.normal(size=(n, len(decoy_indices)))
+    signs = rng.choice([-1, 1], size=len(decoy_indices))
 
-    signs=rng.choice([-1,1],size=s)
-    w_true[support]=signal*signs
+    for i in range(len(decoy_indices)):
+        j = support[i]
+        k = decoy_indices[i]
+
+        w_true[j] = signal * signs[i]
+        w_true[k] = 0
+
+        X[:, k] = rng.normal(0, 1, size=n)
+
     epsilon=rng.normal(0,sigma,size=n)
     y=X@w_true+epsilon
 
@@ -92,7 +95,7 @@ def generate_correlated_sparse_linear_data(n=1000,d=50,s=5,sigma=1.0,signal=2.0,
     # y: response vector (n,)
     # w_true: true coefficient vector (d,)
     # support: indices of nonzero coefficients
-     # Sigma: covariance matrix
+    # Sigma: covariance matrix
     return X,y,w_true,support,Sigma
 
 # ==================================================
