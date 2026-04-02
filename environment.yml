@@ -1,2 +1,7 @@
-numpy
-matplotlib
+dependencies:
+  - python=3.9
+  - pip
+  - pip:
+    - numpy
+    - scikit-learn
+    - matplotlib
