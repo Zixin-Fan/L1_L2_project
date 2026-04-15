@@ -7,11 +7,11 @@
 |------|------------|
 | Zixin Fan | 300296371 |
 | Sophie Séguin | 300225009 | 
-|  |  | 
-|  |  | # L1_L2_project
+| Nathan Amuaro |  | 
+| Zheng Yew Wong | 30051183 | # L1_L2_project
 This project studies L1 (Lasso) and L2 (Ridge) regularization on sparse linear models, including synthetic data generation, experimental evaluation, and analysis of prediction accuracy, parameter estimation, and variable selection.
 
-## **Task distribution**
+## **Programming Task distribution**
 - Zixin Fan
   - Synthetic dataset generation and experimental setup.
   - Analysis of predictive performance, parameter estimation accuracy, and variable selection performance.
@@ -43,7 +43,6 @@ This project studies L1 (Lasso) and L2 (Ridge) regularization on sparse linear m
       - Variable Selection Performance vs Penalty Term (λ) on Lasso
         (Analyzed how λ controls sparsity in high-dimensional settings, including under- and over-regularization effects)
   - High-dimensional regime (d > n) – analysis of model behaviour, explanation of ridge uniqueness and lasso sparsity, and evaluation of prediction error and support recovery.
-  - Slides preparation and participation in code testing and validation.
 - Sophie Seguin
   - Designed and coded all computational experiments, including:
     - Bias vs. regularisation strength under orthonormal design.
@@ -54,7 +53,6 @@ This project studies L1 (Lasso) and L2 (Ridge) regularization on sparse linear m
     - Bias‑variance decomposition (bias calculation and variance quantification).
   - Participated in code testing, validation
   - Adding decoy variables to data generation
-  - Writing and correction of the final report
 
 ## Project Structure
 
